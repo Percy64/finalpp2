@@ -1,0 +1,58 @@
+# Redirigir a home/index.php por defecto
+DirectoryIndex home/index.php
+
+# Habilitar reescritura de URLs
+RewriteEngine On
+RewriteBase /lost-found/
+
+# Redirigir la raíz del proyecto a home/index.php
+RewriteRule ^$ home/index.php [L]
+
+# Redirigir index.php en la raíz a home/index.php
+RewriteRule ^index\.php$ home/index.php [L]
+
+# ========== URLs AMIGABLES ==========
+
+# Mascota: /mascota/123 -> mascota/perfil_mascota.php?id=123
+RewriteRule ^mascota/([0-9]+)$ mascota/perfil_mascota.php?id=$1 [L,QSA]
+
+# Editar mascota: /mascota/123/editar -> mascota/editar_mascota.php?id=123
+RewriteRule ^mascota/([0-9]+)/editar$ mascota/editar_mascota.php?id=$1 [L,QSA]
+
+# Eliminar mascota: /mascota/123/eliminar -> mascota/eliminar_mascota.php?id=123
+RewriteRule ^mascota/([0-9]+)/eliminar$ mascota/eliminar_mascota.php?id=$1 [L,QSA]
+
+# QR Info: /qr/123 -> mascota/qrinfo.php?id=123
+RewriteRule ^qr/([0-9]+)$ mascota/qrinfo.php?id=$1 [L,QSA]
+
+# Usuario: /usuario/123 -> usuario/perfil_usuario.php?id=123
+RewriteRule ^usuario/([0-9]+)$ usuario/perfil_usuario.php?id=$1 [L,QSA]
+
+# Páginas legales
+RewriteRule ^terminos$ legal/terminos-condiciones.html [L]
+RewriteRule ^mision$ legal/mision_vision.php [L]
+
+# Registro y login con URLs limpias
+RewriteRule ^login$ usuario/iniciosesion.php [L]
+RewriteRule ^registro$ usuario/registro_usuario.php [L]
+RewriteRule ^registrar-mascota$ mascota/registro_mascota.php [L]
+
+# Mapa de búsqueda
+RewriteRule ^mapa$ mascota/mapa.php [L]
+
+# ========== FIN URLs AMIGABLES ==========
+
+# Evitar listado de directorios
+Options -Indexes
+
+# Configuración de seguridad
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Proteger archivos sensibles
+<FilesMatch "\.(sql|md|log|bak)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

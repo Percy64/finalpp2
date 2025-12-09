@@ -1,0 +1,216 @@
+/* --- RESET BÁSICO --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff7c5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden; /* Sin scroll */
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.contenedor-principal {
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff7c5;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+/* --- SECCIÓN DE BÚSQUEDA (TODO EL CONTENIDO AHORA DENTRO DE AQUÍ) --- */
+.busqueda-mascota {
+  flex: 1;
+  background: #fff6d5;
+  border-radius: 1rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* --- TÍTULO --- */
+.busqueda-mascota h2 {
+  color: #6a0dad;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* --- BARRA DE BÚSQUEDA --- */
+.barra-busqueda {
+  display: flex;
+  align-items: center;
+  background: #f2f0fa;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.barra-busqueda input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.btn-camara {
+  background: #6a0dad;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* --- MAPA --- */
+#mapa {
+  width: 100%;
+  height: 350px;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  transition: height 0.3s ease;
+}
+
+/* --- CARRUSEL --- */
+.carrusel-con-flechas {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.carrusel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+}
+
+.carrusel::-webkit-scrollbar {
+  display: none;
+}
+
+.card-mascota {
+  background: #fff7e8;
+  border-radius: 1rem;
+  width: 120px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.card-mascota img {
+  width: 100%;
+  border-radius: 0.8rem;
+}
+
+.card-mascota p {
+  color: #6a0dad;
+  font-weight: 600;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+
+.card-mascota span {
+  display: block;
+  color: #555;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+
+/* --- FLECHAS --- */
+.flecha {
+  background: #6a0dad;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flecha:hover {
+  background: #8530d8;
+}
+
+/* --- BARRA DE NAVEGACIÓN (ahora integrada al final de .busqueda-mascota) --- */
+.barra-navegacion {
+  background: #6a0dad; /* 💜 violeta de Figma */
+  border-radius: 1rem;
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.15);
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.nav-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  width: 100%;
+  max-width: 380px;
+}
+
+.nav-icons a {
+  color: #fff;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.nav-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Botón central (búsqueda) elevado */
+.nav-icons li:nth-child(2) a {
+  background-color: #fff;
+  color: #6a0dad;
+  font-size: 1.6rem;
+  padding: 0.7rem;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transform: translateY(-10px);
+}
+
+.nav-icons li:nth-child(2) a:hover {
+  background-color: #f8eaff;
+  color: #8530d8;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-height: 640px) {
+  #mapa {
+    height: 160px;
+  }
+}

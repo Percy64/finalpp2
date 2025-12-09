@@ -1,0 +1,57 @@
+/* Estilos para Términos y Condiciones */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #FAF3B5;
+  color: #2b2b2b;
+}
+
+.principal {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px 16px 28px;
+}
+
+.titulo {
+  font-size: 1.4rem;
+  color: #6a0dad;
+  margin: 8px 0 16px;
+  text-align: center;
+}
+
+.parrafo {
+  line-height: 1.5;
+  font-size: 0.95rem;
+  margin: 10px 0 16px;
+}
+
+.parrafo ul { margin: 8px 0 8px 18px; }
+.parrafo ul li { margin: 6px 0; }
+
+.nombre-proyecto { font-weight: 700; }
+
+.botones {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 24px 0 8px;
+}
+
+.aceptar, .rechazar {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.rechazar { background: #9B44CE; color: #fff; }
+.aceptar { background: #E6D5F4; color: #4a2d66; }
+
+/* Responsive */
+@media (max-width: 360px) {
+  .titulo { font-size: 1.2rem; }
+  .parrafo { font-size: 0.9rem; }
+}
