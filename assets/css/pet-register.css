@@ -1,0 +1,128 @@
+/* Registro de Mascota */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fdf6ff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.registro-mascota {
+    width: 100%;
+    max-width: 640px;
+}
+
+.formulario {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 36px 32px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+    animation: rise 0.45s ease;
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(24px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+h2 {
+    margin: 0 0 10px;
+    color: #1f2a44;
+    font-size: 28px;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 26px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 6px;
+    color: #374151;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario input[type="file"],
+.formulario input[type="tel"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.25s ease;
+    background: #f9fafb;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #7f7fd5;
+    box-shadow: 0 0 0 3px rgba(127, 127, 213, 0.15);
+    background: #ffffff;
+}
+
+.formulario textarea { resize: vertical; min-height: 110px; }
+
+.formulario .field-row { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+
+.formulario .spacer { margin-bottom: 16px; }
+
+.error-message {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-left: 4px solid #ef4444;
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+}
+
+.btn_enviar, .btn-cancelar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.btn_enviar {
+    background: linear-gradient(135deg, #7f7fd5 0%, #86a8e7 50%, #91eae4 100%);
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(127, 127, 213, 0.35);
+}
+
+.btn_enviar:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(127, 127, 213, 0.45); }
+
+.btn_enviar:active { transform: translateY(0); }
+
+.btn-cancelar {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.btn-cancelar:hover { background: #d1d5db; transform: translateY(-1px); }
+
+.btn-row { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin-top: 8px; }
+
+@media (max-width: 560px) {
+    .formulario { padding: 28px 20px; }
+    h2 { font-size: 24px; }
+    .btn-row { grid-template-columns: 1fr; }
+}

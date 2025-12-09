@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once __DIR__ . '/includes/conexion.php';
+require_once __DIR__ . '/../config/database.php';
+
+$db = Database::getInstance()->getConnection();
 
 echo "<h2>🔍 Diagnóstico de Mascotas</h2>";
 
@@ -12,7 +14,7 @@ if (isset($_SESSION['usuario_id'])) {
     $usuario_id = $_SESSION['usuario_id'];
 } else {
     echo "<strong style='color: red;'>❌ No hay sesión activa. Redirigiendo...</strong><br>";
-    echo "<a href='iniciosesion.php'>Ir a login</a>";
+    echo "<a href='/finalpp2/login'>Ir a login</a>";
     exit;
 }
 
@@ -20,7 +22,7 @@ if (isset($_SESSION['usuario_id'])) {
 echo "<h3>2. Verificar Usuario en BD:</h3>";
 try {
     $sql = "SELECT * FROM usuarios WHERE id = ?";
-    $stmt = $pdo->prepare($sql);
+    $stmt = $db->prepare($sql);
     $stmt->execute([$usuario_id]);
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
     
@@ -38,7 +40,7 @@ try {
 echo "<h3>3. Estructura de Tabla Mascotas:</h3>";
 try {
     $sql = "DESCRIBE mascotas";
-    $stmt = $pdo->query($sql);
+    $stmt = $db->query($sql);
     $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     echo "<table border='1' style='border-collapse: collapse;'>";
@@ -60,7 +62,7 @@ try {
 echo "<h3>4. Todas las Mascotas en la BD:</h3>";
 try {
     $sql = "SELECT * FROM mascotas ORDER BY id_mascota";
-    $stmt = $pdo->query($sql);
+    $stmt = $db->query($sql);
     $todas_mascotas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     if (!empty($todas_mascotas)) {
@@ -90,7 +92,7 @@ echo "<h3>5. Mascotas del Usuario Actual:</h3>";
 try {
     // Corregido: la columna de fecha es 'fecha_registro'
     $sql = "SELECT * FROM mascotas WHERE id = ? ORDER BY fecha_registro DESC";
-    $stmt = $pdo->prepare($sql);
+    $stmt = $db->prepare($sql);
     $stmt->execute([$usuario_id]);
     $mascotas_usuario = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
@@ -120,6 +122,6 @@ try {
 }
 
 echo "<br><hr>";
-echo "<p><a href='perfil_usuario.php'>← Volver al perfil</a></p>";
-echo "<p><a href='registro_mascota.php'>➕ Registrar nueva mascota</a></p>";
+echo "<p><a href='/finalpp2/perfil'>← Volver al perfil</a></p>";
+echo "<p><a href='/finalpp2/registrar-mascota'>➕ Registrar nueva mascota</a></p>";
 ?>

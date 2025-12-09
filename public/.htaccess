@@ -1,0 +1,10 @@
+# Redirigir todo al front controller
+RewriteEngine On
+RewriteBase /finalpp2/public/
+
+# No reescribir archivos o directorios existentes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Redirigir todo lo demás a index.php
+RewriteRule ^(.*)$ index.php/$1 [L,QSA]

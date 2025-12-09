@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fdf6ff;
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.registro-mascota {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.formulario {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.perfil-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.perfil-title-header h2 {
+    font-size: 32px;
+    color: #1f2a44;
+    margin-bottom: 20px;
+}
+
+.user-avatar-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.avatar-img-header {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #667eea;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.35);
+}
+
+.success-message {
+    background: #d4edda !important;
+    color: #155724 !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    margin-bottom: 20px !important;
+    border-left: 4px solid #28a745 !important;
+}
+
+.error-message {
+    background: #fef2f2 !important;
+    color: #b91c1c !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
+    margin-bottom: 20px !important;
+    border-left: 4px solid #ef4444 !important;
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.user-details-center h3 {
+    font-size: 24px;
+    color: #1f2a44;
+    margin-bottom: 8px;
+}
+
+.user-email {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+.user-phone,
+.user-address {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+.user-since {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-top: 10px;
+}
+
+.edit-profile-section {
+    margin-top: 20px;
+}
+
+.btn-edit-profile {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+}
+
+.btn-edit-profile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(102, 126, 234, 0.35);
+}
+
+.logout-section {
+    max-width: 900px;
+    margin: 30px auto 0;
+    padding: 0 20px 30px 20px;
+    text-align: center;
+}
+
+.btn-logout-main {
+    padding: 14px 48px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 28px rgba(245, 87, 108, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.btn-logout-main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+}
+
+.btn-logout-main:active {
+    transform: translateY(-1px);
+}
+
+.mascotas-section {
+    margin-top: 30px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.section-header h3 {
+    font-size: 22px;
+    color: #1f2a44;
+}
+
+.btn-add-pet {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add-pet:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.25);
+}
+
+.no-mascotas {
+    text-align: center;
+    padding: 30px;
+    color: #9ca3af;
+    font-size: 16px;
+    background: #f9fafb;
+    border-radius: 10px;
+}
+
+.mascotas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.mascota-card {
+    background: #f9fafb;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.mascota-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.mascota-image-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #e5e7eb;
+    aspect-ratio: 1;
+}
+
+.mascota-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mascota-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.status-perdida {
+    background: #f87171;
+}
+
+.status-encontrada {
+    background: #34d399;
+}
+
+.mascota-info {
+    padding: 16px;
+}
+
+.mascota-info h4 {
+    font-size: 18px;
+    color: #1f2a44;
+    margin-bottom: 4px;
+}
+
+.mascota-info p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 2px;
+}
+
+.mascota-color {
+    margin-top: 8px !important;
+}
+
+.mascota-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.btn-ver,
+.btn-editar {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ver {
+    background: #667eea;
+    color: white;
+}
+
+.btn-ver:hover {
+    background: #5568d3;
+    transform: translateY(-1px);
+}
+
+.btn-editar {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.btn-editar:hover {
+    background: #d1d5db;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .formulario {
+        padding: 20px;
+    }
+
+    .perfil-title-header h2 {
+        font-size: 26px;
+    }
+
+    .avatar-img-header {
+        width: 120px;
+        height: 120px;
+    }
+
+    .mascotas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}
